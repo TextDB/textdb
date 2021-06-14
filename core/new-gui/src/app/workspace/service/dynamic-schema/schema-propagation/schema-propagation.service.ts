@@ -183,7 +183,8 @@ export class SchemaPropagationService {
     newJsonSchema = DynamicSchemaService.mutateProperty(newJsonSchema, (k, v) => v.autofill === 'attributeName',
       old => ({...old, type: 'string', enum: getAttrNames(old), uniqueItems: true}));
 
-    newJsonSchema = DynamicSchemaService.mutateProperty(newJsonSchema, (k, v) => v.autofill === 'attributeNameList',
+    newJsonSchema = DynamicSchemaService.mutateProperty(newJsonSchema,
+      (k, v) => v.autofill === 'attributeNameList' || v.autofill === 'attributeNameReorderList',
       old => ({
         ...old, type: 'array', uniqueItems: true,
         items: {...(old.items as CustomJSONSchema7), type: 'string', enum: getAttrNames(old)}

@@ -8,7 +8,7 @@ export interface CustomJSONSchema7 extends JSONSchema7 {
   items?: CustomJSONSchema7 | boolean | JSONSchema7Definition[];
 
   // new custom properties:
-  autofill?: 'attributeName' | 'attributeNameList';
+  autofill?: 'attributeName' | 'attributeNameList' | 'attributeNameReorderList';
   autofillAttributeOnPort?: number;
 
   dependOn?: string;

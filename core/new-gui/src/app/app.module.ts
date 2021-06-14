@@ -81,6 +81,9 @@ import { VisualizationPanelComponent } from './workspace/component/visualization
 import { WorkflowEditorComponent } from './workspace/component/workflow-editor/workflow-editor.component';
 import { WorkspaceComponent } from './workspace/component/workspace.component';
 import { ResultDownloadComponent } from './workspace/component/navigation/result-download/result-download.component';
+import { DraggableArrayTypeComponent } from './common/formly/draggable-array.type';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FormlySelectModule } from '@ngx-formly/core/select';
 
 registerLocaleData(en);
 
@@ -117,6 +120,7 @@ registerLocaleData(en);
     MiniMapComponent,
     ResultPanelToggleComponent,
     ArrayTypeComponent,
+    DraggableArrayTypeComponent,
     ObjectTypeComponent,
     MultiSchemaTypeComponent,
     NullTypeComponent,
@@ -149,6 +153,7 @@ registerLocaleData(en);
     FormlyModule.forRoot(TEXERA_FORMLY_CONFIG),
     FormlyMaterialModule,
     FormlyMatDatepickerModule,
+    DragDropModule,
     NzDatePickerModule,
     NzDropDownModule,
     NzButtonModule,
@@ -166,7 +171,8 @@ registerLocaleData(en);
     NzSpaceModule,
     NzBadgeModule,
     NgxAceModule,
-    MatDialogModule
+    MatDialogModule,
+    FormlySelectModule
   ],
   entryComponents: [
     NgbdModalAddWorkflowComponent,

@@ -16,19 +16,7 @@ import static edu.uci.ics.texera.workflow.common.metadata.annotations.AutofillAt
 @Target({ElementType.FIELD})
 @JacksonAnnotationsInside
 @JsonSchemaInject(
-        strings = @JsonSchemaString(path = autofill, value = attributeName),
+        strings = @JsonSchemaString(path = autofill, value = attributeNameReorderList),
         ints = @JsonSchemaInt(path = autofillAttributeOnPort, value = 0))
-public @interface AutofillAttributeName {
-
-    // JSON schema key
-    String autofill = "autofill";
-
-    // allowed JSON schema values for the key autoCompleteType
-    String attributeName = "attributeName";
-    String attributeNameList = "attributeNameList";
-    String attributeNameReorderList = "attributeNameReorderList";
-
-    // JSON schema key to indicate which port
-    String autofillAttributeOnPort = "autofillAttributeOnPort";
-
+public @interface AutofillAttributeNameReorderList {
 }

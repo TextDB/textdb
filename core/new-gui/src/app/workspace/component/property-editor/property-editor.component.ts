@@ -427,10 +427,17 @@ export class PropertyEditorComponent {
     // this requires a one-to-one mapping.
     // for relational custom options, have to do it after FormlySchema is generated.
     const jsonSchemaMapIntercept = (mappedField: FormlyFieldConfig, mapSource: CustomJSONSchema7): FormlyFieldConfig => {
-      // if the title is python script (for Python UDF), then make this field a custom template 'codearea'
+      // if the title is python script (for Python UDF), then make this field a custom template `codearea`
       if (mapSource?.description?.toLowerCase() === 'input your code here') {
         if (mappedField.type) {
           mappedField.type = 'codearea';
+        }
+      }
+
+      // we need to reorder the array, a custom template `dragablearray` is used
+      if (mapSource?.autofill === 'attributeNameReorderList') {
+        if (mappedField.type) {
+          mappedField.type = 'draggablearray';
         }
       }
       return mappedField;
@@ -464,11 +471,12 @@ export class PropertyEditorComponent {
         if (propertyValue.dependOn) {
           this.setChildTypeDependency(propertyValue.dependOn, fields, propertyName);
         }
+        console.log('property value ', propertyValue);
       });
     }
 
     this.formlyFields = fields;
-
+    console.log(fields);
   }
 
   private setChildTypeDependency(parentName: string, fields: FormlyFieldConfig[], childName: string): void {

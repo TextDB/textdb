@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.{JsonProperty, JsonPropertyDescription}
 import com.google.common.base.Preconditions
 import com.kjetland.jackson.jsonSchema.annotations.JsonSchemaTitle
 import edu.uci.ics.texera.workflow.common.metadata._
-import edu.uci.ics.texera.workflow.common.metadata.annotations.AutofillAttributeNameList
+import edu.uci.ics.texera.workflow.common.metadata.annotations.AutofillAttributeNameReorderList
 import edu.uci.ics.texera.workflow.common.operators.OneToOneOpExecConfig
 import edu.uci.ics.texera.workflow.common.operators.map.MapOpDesc
 import edu.uci.ics.texera.workflow.common.tuple.schema.Schema
@@ -15,8 +15,8 @@ class ProjectionOpDesc extends MapOpDesc {
 
   @JsonProperty(required = true)
   @JsonSchemaTitle("Attributes")
-  @JsonPropertyDescription("a subset of column to keeps")
-  @AutofillAttributeNameList
+  @JsonPropertyDescription("A subset of columns to keep")
+  @AutofillAttributeNameReorderList
   var attributes: List[String] = List()
 
   override def operatorExecutor: OneToOneOpExecConfig = {

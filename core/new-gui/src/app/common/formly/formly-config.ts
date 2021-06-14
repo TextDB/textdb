@@ -4,6 +4,7 @@ import { ObjectTypeComponent } from './object.type';
 import { MultiSchemaTypeComponent } from './multischema.type';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { CodeareaCustomTemplateComponent } from '../../workspace/component/codearea-custom-template/codearea-custom-template.component';
+import { DraggableArrayTypeComponent } from './draggable-array.type';
 
 /**
  * Configuration for using Json Schema with Formly.
@@ -42,17 +43,18 @@ export const TEXERA_FORMLY_CONFIG = {
       extends: 'input',
       defaultOptions: {
         templateOptions: {
-          type: 'number',
+          type: 'number'
         },
       },
     },
-    { name: 'boolean', extends: 'checkbox' },
-    { name: 'enum', extends: 'select' },
-    { name: 'null', component: NullTypeComponent, wrappers: ['form-field'] },
-    { name: 'array', component: ArrayTypeComponent },
-    { name: 'object', component: ObjectTypeComponent },
-    { name: 'multischema', component: MultiSchemaTypeComponent },
-    { name: 'codearea', component: CodeareaCustomTemplateComponent},
+    {name: 'boolean', extends: 'checkbox'},
+    {name: 'enum', extends: 'select'},
+    {name: 'null', component: NullTypeComponent, wrappers: ['form-field']},
+    {name: 'array', component: ArrayTypeComponent},
+    {name: 'object', component: ObjectTypeComponent},
+    {name: 'multischema', component: MultiSchemaTypeComponent},
+    {name: 'draggablearray', component: DraggableArrayTypeComponent},
+    {name: 'codearea', component: CodeareaCustomTemplateComponent}
   ],
 };
 
