@@ -1,11 +1,9 @@
 import { DragDropService } from './../../../service/drag-drop/drag-drop.service';
 import { WorkflowActionService } from '../../../service/workflow-graph/model/workflow-action.service' ;
-import { Component, Input, AfterViewInit, OnInit, ElementRef, OnDestroy } from '@angular/core';
-import { Observable, of, Subject, Subscription, zip } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Component, Input, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { OperatorSchema } from '../../../types/operator-schema.interface';
-import { assertType } from 'src/app/common/util/assert';
 
 /**
  * OperatorLabelComponent is one operator box in the operator panel.

@@ -29,6 +29,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzSliderModule } from 'ng-zorro-antd/slider';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 import { FileUploadModule } from 'ng2-file-upload';
 import { NgxAceModule } from 'ngx-ace-icy';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
@@ -81,6 +83,7 @@ import { VisualizationPanelComponent } from './workspace/component/visualization
 import { WorkflowEditorComponent } from './workspace/component/workflow-editor/workflow-editor.component';
 import { WorkspaceComponent } from './workspace/component/workspace.component';
 import { ResultDownloadComponent } from './workspace/component/navigation/result-download/result-download.component';
+import { PresetWrapperComponent } from './common/formly/preset-wrapper/preset-wrapper.component';
 import { GoogleApiModule, NG_GAPI_CONFIG } from 'ng-gapi';
 
 registerLocaleData(en);
@@ -119,6 +122,7 @@ registerLocaleData(en);
     ResultPanelToggleComponent,
     ArrayTypeComponent,
     ObjectTypeComponent,
+    PresetWrapperComponent,
     MultiSchemaTypeComponent,
     NullTypeComponent,
     VisualizationPanelComponent,
@@ -173,6 +177,8 @@ registerLocaleData(en);
     NzSpaceModule,
     NzBadgeModule,
     NgxAceModule,
+    NzPopconfirmModule,
+    NzMessageModule,
     MatDialogModule
   ],
   entryComponents: [
@@ -190,7 +196,6 @@ registerLocaleData(en);
     UserService,
     UserFileService,
     UserFileUploadService,
-    UserDictionaryService,
     UserDictionaryUploadService,
     {provide: NZ_I18N, useValue: en_US}
   ],

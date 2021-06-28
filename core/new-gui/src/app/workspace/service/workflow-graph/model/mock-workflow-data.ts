@@ -8,6 +8,7 @@ import { Point, OperatorPredicate, OperatorLink, Breakpoint } from './../../../t
  *  - 2: NlpSentiment
  *  - 3: ViewResults
  *  - 4: MultiInputOutputOperator
+ *  - 5: PresetEnabledOperator
  *
  * Links:
  *  - link-1: ScanSource -> ViewResults
@@ -61,6 +62,16 @@ export const mockMultiInputOutputPredicate: OperatorPredicate = {
   },
   inputPorts: [{portID: 'input-0'}, {portID: 'input-1'}, {portID: 'input-2'}],
   outputPorts: [{portID: 'output-0'}, {portID: 'output-1'}, {portID: 'output-2'}],
+  showAdvanced: true
+};
+
+export const mockPresetEnabledPredicate: OperatorPredicate = {
+  operatorID: '5',
+  operatorType: 'PresetEnabledOp',
+  operatorProperties: {
+  },
+  inputPorts: [],
+  outputPorts: [],
   showAdvanced: true
 };
 

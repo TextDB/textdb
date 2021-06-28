@@ -4,7 +4,7 @@ import { isEqual } from 'lodash';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { NzTableQueryParams } from 'ng-zorro-antd/table';
 import { Observable } from 'rxjs/Observable';
-import { assertType } from 'src/app/common/util/assert';
+import { asType } from 'src/app/common/util/assert';
 import { sessionGetObject, sessionRemoveObject, sessionSetObject } from 'src/app/common/util/storage';
 import { ExecuteWorkflowService } from '../../service/execute-workflow/execute-workflow.service';
 import { ResultPanelToggleService } from '../../service/result-panel-toggle/result-panel-toggle.service';
@@ -347,8 +347,7 @@ export class ResultPanelComponent {
           label: '<',
           onClick: () => {
             selectedRowIndex -= 1;
-            assertType<RowModalComponent>(modalRef.componentInstance);
-            modalRef.componentInstance.currentDisplayRowData = this.currentResult[selectedRowIndex];
+            asType(modalRef.componentInstance, RowModalComponent).currentDisplayRowData = this.currentResult[selectedRowIndex];
           },
           disabled: () => selectedRowIndex === 0
         },
@@ -356,8 +355,7 @@ export class ResultPanelComponent {
           label: '>',
           onClick: () => {
             selectedRowIndex += 1;
-            assertType<RowModalComponent>(modalRef.componentInstance);
-            modalRef.componentInstance.currentDisplayRowData = this.currentResult[selectedRowIndex];
+            asType(modalRef.componentInstance, RowModalComponent).currentDisplayRowData = this.currentResult[selectedRowIndex];
           },
           disabled: () => selectedRowIndex === this.currentResult.length - 1
         },

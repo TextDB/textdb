@@ -24,6 +24,25 @@ export const mockScanSourceSchema: OperatorSchema = {
   }
 };
 
+export const mockPresetEnabledSchema: OperatorSchema = {
+  operatorType: 'PresetEnabledOp',
+  additionalMetadata: {
+    userFriendlyName: 'DEBUG_userFriendlyName',
+    operatorDescription: 'DEBUG_operatorDescription',
+    operatorGroupName: 'Analysis',
+    inputPorts: [],
+    outputPorts: [{}],
+  },
+  jsonSchema: {
+    properties: {
+      presetProperty: { type: 'string', description: 'property that can be saved in presets', title: 'presetProperty', 'enable-presets': true },
+      normalProperty: { type: 'string', description: 'property that is excluded in presets', title: 'normalProperty'}
+    },
+    required: ['normalProperty'],
+    type: 'object'
+  }
+};
+
 export const mockFileSourceSchema: OperatorSchema = {
   operatorType: 'FileSource',
   jsonSchema: {
@@ -198,6 +217,7 @@ export const mockOperatorSchemaList: ReadonlyArray<OperatorSchema> = [
   mockAggregationSchema,
   mockViewResultsSchema,
   mockMultiInputOutputSchema,
+  mockPresetEnabledSchema,
 ];
 
 export const mockOperatorGroup: ReadonlyArray<GroupInfo> = [

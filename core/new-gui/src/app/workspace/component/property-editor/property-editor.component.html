@@ -1,4 +1,4 @@
-<div class="texera-workspace-property-editor-body texera-workflow-component-body">
+<div class="texera-workspace-property-editor-body texera-workflow-component-body" #property_editor>
   <div *ngIf="displayForm">
     <h3 *ngIf="formTitle" class="texera-workspace-property-editor-title" mat-subheader>
       {{formTitle}}
@@ -36,4 +36,16 @@
     type="button" class="breakpointRemoveButton"
     (click)="confirmChangeOperatorLogic()">Confirm Change</button>
   </div>
+  <span nz-popconfirm class = "savePresetDialog"
+    [nzPopconfirmOrigin]=property_editor
+    nzPopconfirmPlacement="leftTop"
+    [nzPopconfirmVisible]='presetContext.showPrompt'
+    nzPopconfirmTitle="Create new operator preset?"
+    nzOkText="save preset"
+    nzCancelText="don't save"
+    (nzOnConfirm)='this.presetContext.resolvePrompt(true)'
+    (nzOnCancel)='this.presetContext.resolvePrompt(false)'
+    (nzPopconfirmVisibleChange)='$event ? null : this.presetContext.resolvePrompt(false)'>
+    <a href="#" #promptSavePresetDialogButton><!-- intentionally empty and invisible button (spoofed click events trigger dialog) --></a>
+  </span>
 </div>
